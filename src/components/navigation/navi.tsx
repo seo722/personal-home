@@ -1,16 +1,17 @@
 import { cn } from '@/lib/utils';
-import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { Button, buttonVariants } from './ui/button';
+import { buttonVariants } from '../ui/button';
 import { getAuthSession } from '@/lib/auth';
+import UserAccountNav from './UserAccountNav';
+import { ModeToggle } from '../ModeToggle';
 
-const Navbar = async () => {
+const Navi = async () => {
   const session = await getAuthSession();
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="sm:hidden fixed top-0 inset-x-0 h-14 bg-neutral-100 dark:bg-neutral-800 border-b border-zinc-300 dark:border-neutral-700 z-[10] py-2 flex justify-center">
       {!session?.user ? (
-        <div className="w-fit  flex items-center gap-2 ">
+        <div className="w-fit flex items-center gap-2 ">
           <Link
             href="/auth/signup"
             className={cn(buttonVariants({ variant: 'default', size: 'sm' }), 'bg-[#678baf] hover:bg-[#3c5772] w-fit')}
@@ -25,15 +26,13 @@ const Navbar = async () => {
           </Link>
         </div>
       ) : (
-        <Link
-          href="/auth/signout"
-          className={cn(buttonVariants({ variant: 'default', size: 'sm' }), 'bg-[#678baf] hover:bg-[#3c5772]')}
-        >
-          Go to Sign Out
-        </Link>
+        <div className="w-fit flex items-center gap-2 mr-4">
+          <UserAccountNav user={session.user} />
+          <ModeToggle />
+        </div>
       )}
     </div>
   );
 };
 
-export default Navbar;
+export default Navi;

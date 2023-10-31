@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import Provider from '@/components/provider/Provider';
 import { ThemeProvider } from '@/components/provider/theme-provider';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/navigation/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,11 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="dark:bg-[#1f1f1f] bg-[#f1f1f1]">
+      <body className="dark:bg-neutral-900/80 bg-neutral-100/40 min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Provider>
             <Navbar />
-            {children}
+
+            <div className="mt-6 sm:mt-14 container max-w-7xl m-0 p-0 sm:mx-auto h-full">{children}</div>
           </Provider>
         </ThemeProvider>
         <Toaster />

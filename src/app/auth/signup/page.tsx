@@ -4,10 +4,9 @@ import { cn } from '@/lib/utils';
 import { Home } from 'lucide-react';
 import Link from 'next/link';
 
-const SignUpPage = () => {
+const SignUpPage = async () => {
   return (
     <div className="w-full h-full absolute flex flex-col gap-4 items-center p-8">
-      <h1 className="text-3xl py-4">sign up</h1>
       <SignUpForm />
       <Link
         href="/"
