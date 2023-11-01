@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const SignUpPage = async () => {
   return (
-    <div className="w-full h-full absolute flex flex-col gap-4 items-center p-8">
+    <div className="w-full h-full absolute flex flex-col gap-4 items-center p-8 mt-8 sm:mt-4">
       <SignUpForm />
       <Link
         href="/"
