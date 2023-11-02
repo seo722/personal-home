@@ -15,14 +15,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="dark:bg-neutral-900/80 bg-neutral-100/40  bg-gradient-to-t from-lime-50 to-fuchsia-50 dark:from-[#000000] dark:to-[#4D4855] min-h-screen">
+    <html className="min-h-screen" lang="en" suppressHydrationWarning>
+      <body className="bg-gradient-to-t from-lime-50 to-fuchsia-50 dark:from-[#000000] dark:to-[#4D4855]">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Provider>
             <Navbar />
             <div className="mt-[72px] container max-w-7xl m-0 p-0 sm:mx-auto h-full">{children}</div>
-
-            {/* <MainPageMenu /> */}
           </Provider>
         </ThemeProvider>
         <Toaster />
