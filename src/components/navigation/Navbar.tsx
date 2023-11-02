@@ -11,8 +11,8 @@ const Navbar = async () => {
   const session = await getAuthSession();
 
   return (
-    <div className="fixed top-0 inset-x-0 h-14 bg-neutral-100 dark:bg-neutral-800 border-b border-zinc-300 dark:border-neutral-700 z-[10] py-2 sm:flex justify-center">
-      <div className="conatiner flex items-center justify-between max-w-7xl w-full h-full">
+    <div className="fixed top-4 inset-x-0 h-14 z-[10] sm:flex justify-center px-4">
+      <div className="conatiner bg-white from-gray-50 to-stone-50 dark:bg-stone-800 border-none flex items-center justify-between max-w-7xl w-full h-full rounded-full border-2 py-2 shadow-2xl ">
         <Link href="/" className="flex gap-2 items-center ml-4">
           <Home className="w-6 h-6 text-zinc-700 dark:text-zinc-300" />
           <p className="hidden md:block text-zinc-700 dark:text-zinc-300 text-sm font-bold ">SEODONG</p>
@@ -22,7 +22,7 @@ const Navbar = async () => {
         <div>Search Bar</div>
 
         {!session?.user ? (
-          <div className="w-fit flex items-center gap-2 mr-2">
+          <div className="w-fit flex items-center gap-2 mr-4">
             {/* <Link
               href="/auth/signup"
               className={cn(
@@ -39,7 +39,7 @@ const Navbar = async () => {
                 'bg-lime-800 hover:bg-lime-700 dark:bg-lime-200 dark:hover:bg-lime-300 w-fit'
               )}
             >
-              Go to Sign In
+              Sign In
             </Link>
             <ModeToggle />
           </div>
