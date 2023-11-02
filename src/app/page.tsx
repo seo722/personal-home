@@ -1,14 +1,14 @@
-import SideBar from '@/components/navigation/SideBar';
-import Navi from '@/components/navigation/navi';
-
 export default function Home() {
   return (
-    <main className="max-w-7xl text-3xl flex justify-around sm:pt-4 p-0 sm:px-8">
-      {/* <Navi /> */}
-      <div className="pt-20">
-        <p>HOME홈페이지입니더</p>
-
-        {/* <SideBar /> */}
+    <main className="max-w-7xl md:grid grid-cols-3 flex flex-col gap-4">
+      <div className="">
+        <p>HOME홈페이지입니다</p>
+      </div>
+      <div className="">
+        <p>HOME홈페이지입니다</p>
+      </div>
+      <div className="">
+        <p>HOME홈페이지입니다</p>
       </div>
     </main>
   );

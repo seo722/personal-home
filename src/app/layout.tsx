@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Provider from '@/components/provider/Provider';
 import { ThemeProvider } from '@/components/provider/theme-provider';
 import Navbar from '@/components/navigation/Navbar';
+import MainPageMenu from '@/components/Menu';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Provider>
             <Navbar />
 
-            <div className="mt-6 sm:mt-14 container max-w-7xl m-0 p-0 sm:mx-auto h-full">{children}</div>
+            <div className="mt-14 container max-w-7xl m-0 p-0 sm:mx-auto h-full">
+              <div className="max-w-7xl md:grid grid-cols-[1fr_240px] flex flex-col gap-4 sm:px-4 sm:pt-4">
+                {children}
+                <MainPageMenu />
+              </div>
+            </div>
           </Provider>
         </ThemeProvider>
         <Toaster />

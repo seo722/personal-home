@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Home, InfoIcon, Mail, MenuIcon, X } from 'lucide-react';
+import { BookOpenText, Home, InfoIcon, Mail, MenuIcon, X } from 'lucide-react';
 import { useMediaQuery } from 'usehooks-ts';
 
 import { cn } from '@/lib/utils';
@@ -26,7 +26,7 @@ const SideBar = ({ show }: SideBarProps) => {
   const MenuItem = ({ icon, name, route }: { icon: any; name: string; route: string }) => {
     return (
       <Link
-        href="/"
+        href={route}
         onClick={() => {
           setIsCollapsed((prev: boolean) => !prev);
         }}
@@ -62,7 +62,7 @@ const SideBar = ({ show }: SideBarProps) => {
 
       <div
         className={cn(
-          'bg-neutral-100 dark:bg-neutral-800 w-4/6 transition-[margin-right] ease-in-out duration-500 fixed sm:hidden top-0 bottom-0 right-0 z-40 flex flex-col',
+          'bg-neutral-100 dark:bg-neutral-800 w-4/6 transition-[margin-right] ease-in-out duration-500 fixed md:hidden top-0 bottom-0 right-0 z-40 flex flex-col',
           !isCollapsed ? 'mr-0' : 'mr-[-66.666667%] '
         )}
       >
@@ -75,8 +75,8 @@ const SideBar = ({ show }: SideBarProps) => {
         <Separator className="dark:bg-neutral-700" />
         <div className="flex flex-col py-1">
           <MenuItem name="Home" route="/" icon={<Home />} />
-          <MenuItem name="About Us" route="/about" icon={<InfoIcon />} />
-          <MenuItem name="Contact" route="/contact" icon={<Mail />} />
+          <MenuItem name="방명록" route="/guestbook" icon={<BookOpenText />} />
+          {/* <MenuItem name="Contact" route="/contact" icon={<Mail />} /> */}
         </div>
         <Separator className="dark:bg-neutral-700" />
         <div className="p-4 flex justify-end">
