@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className="min-h-screen" lang="en" suppressHydrationWarning>
-      <body className="bg-gradient-to-t from-lime-50 to-fuchsia-50 dark:from-[#000000] dark:to-[#4D4855]">
+      <body className="bg-gradient-to-t from-lime-50 to-fuchsia-50 dark:from-[#181818] dark:to-[#4D4855]">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Provider>
             <Navbar />

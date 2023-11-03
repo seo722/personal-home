@@ -4,18 +4,19 @@ export default function Home() {
       <div className="">
         <p>HOME홈페이지입니다</p>
       </div>
-      <div className="">
-        <p>HOME홈페이지입니다</p>
-      </div>
-      <div className="max-w-7xl mx-auto">
-        <div className="relative group cursor-pointer">
-          <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-violet-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-          <div className="relative px-7 py-6 bg-white dark:bg-stone-800 ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
-            <div className="space-y-2">
-              <p className="text-slate-800 dark:text-white">써보고 싶어서 넣어놓음</p>
-            </div>
-          </div>
-        </div>
+      <div className="text-3xl">
+        <p>
+          HOME홈페이지입니다다 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptatibus
+          repellendus esse minima hic cupiditate a, laudantium quo libero amet nihil qui ipsam molestiae enim excepturi
+          architecto numquam eveniet, aspernatur eos. Necessitatibus aperiam dolorem nihil. Ullam eius consectetur
+          nostrum dolores voluptate suscipit quis, laudantium debitis adipisci earum nesciunt, repellendus molestias?
+          Praesentium in delectus odit hic ex nesciunt, laboriosam explicabo eos cupiditate id voluptatibus incidunt
+          magnam earum autem quod iusto consequatur, illo enim tenetur eaque nemo. Cupiditate, nihil doloremque porro
+          aperiam atque repudiandae quam eos! Est, alias sit et eaque, harum optio fugit iusto unde deserunt culpa
+          repellat suscipit pariatur, recusandae voluptatibus. Numquam, velit. Debitis ha consectetur laboriosam
+          suscipit voluptas sint, nisi quibusdam, consequatur iusto debitis architecto molestiae similique esse enim?
+          Iure inventore consequuntur, corporis quidem sunt voluptas, expedita alias, nam cum quae tempore quia esse.
+        </p>
       </div>
     </main>
   );
