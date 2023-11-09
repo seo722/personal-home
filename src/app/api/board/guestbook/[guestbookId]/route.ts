@@ -11,15 +11,13 @@ export async function DELETE(req: Request, { params }: { params: { guestbookId: 
       return new Response('로그인 후 삭제 가능합니다.', { status: 401 });
     }
 
-    const gbId = params.guestbookId;
+    const id = params.guestbookId;
 
-    const body = await req.json();
-    //validation
-    const { id } = GuestBookDeleteValidator.parse(body);
+    if (!id) return new Response(`${id}`, { status: 402 });
 
     await db.post.delete({
       where: {
-        id: params.guestbookId,
+        id: id,
       },
     });
 
@@ -29,6 +27,6 @@ export async function DELETE(req: Request, { params }: { params: { guestbookId: 
       return new Response(error.message, { status: 422 });
     }
 
-    return new Response('Could not delete guestbook', { status: 500 });
+    return new Response('방명록을 삭제할 수 없습니다.', { status: 500 });
   }
 }

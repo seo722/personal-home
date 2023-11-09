@@ -16,11 +16,12 @@ const GuestBookDeleteButton = ({ post }: GuestBookDeleteButtonProps) => {
   const guestbookId = post.id;
 
   const { mutate: deleteGuestBook } = useMutation({
-    mutationFn: async ({ id }: GuestBookDeleteRequest) => {
-      const payload: GuestBookDeleteRequest = { id };
-      const { data } = await axios.delete(`/api/board/guestbook/${guestbookId}`, { data: payload });
-
-      return data;
+    mutationFn: async () => {
+      console.log(post.id);
+      await axios.delete(`/api/board/guestbook/${guestbookId}`, {
+        data: { id: post.id },
+        params: { guestbookId: post.id },
+      });
     },
     onError: (err) => {
       console.log(err);
@@ -34,11 +35,11 @@ const GuestBookDeleteButton = ({ post }: GuestBookDeleteButtonProps) => {
     <div>
       <button
         onClick={() => {
-          deleteGuestBook({ id: guestbookId });
+          deleteGuestBook();
         }}
-        className="text-stone-500 cursor-pointer"
+        className="text-stone-500 cursor-pointer border rounded-2xl border-stone-500 text-[12px] p-2 font-bold"
       >
-        delete
+        삭제
       </button>
     </div>
   );

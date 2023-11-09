@@ -17,7 +17,7 @@ const GuestBookFeed = async ({ posts }: PostProps) => {
 
   return (
     <div className="border-2 rounded-xl sm:w-full max-w-[800px] w-[340px] border-black/60 dark:border-white/70 p-4 h-full ">
-      <div className="h-full flex flex-col justify-around">
+      <div className="h-full flex flex-col justify-around gap-4 p-4">
         {posts.map((post) => (
           <GusetBookPost key={post.id} post={post} />
         ))}
