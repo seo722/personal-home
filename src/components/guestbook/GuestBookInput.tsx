@@ -1,10 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { Textarea } from '../ui/textarea';
 import { Input } from '../ui/input';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { GuestBookRequest, GuestBookValidator } from '@/lib/validators/guestbook';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -28,7 +27,6 @@ const GuestBookInput = () => {
       description: '',
     },
   });
-  console.log(errors);
 
   const { mutate: postGuestBook } = useMutation({
     mutationFn: async ({ description, name }: GuestBookRequest) => {

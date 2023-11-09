@@ -11,3 +11,9 @@ export const GuestBookValidator = z.object({
 });
 
 export type GuestBookRequest = z.infer<typeof GuestBookValidator>;
+
+export const GuestBookDeleteValidator = z.object({
+  id: z.string(),
+});
+
+export type GuestBookDeleteRequest = z.infer<typeof GuestBookDeleteValidator>;

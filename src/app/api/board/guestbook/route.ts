@@ -1,6 +1,6 @@
 import { getAuthSession } from '@/lib/auth';
 import { db } from '@/lib/prisma';
-import { GuestBookRequest, GuestBookValidator } from '@/lib/validators/guestbook';
+import { GuestBookDeleteValidator, GuestBookRequest, GuestBookValidator } from '@/lib/validators/guestbook';
 import { z } from 'zod';
 
 export async function POST(req: Request) {

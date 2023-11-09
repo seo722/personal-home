@@ -1,20 +1,16 @@
 import GuestBookFeed from '@/components/guestbook/GuestBookFeed';
 import GuestBookInput from '@/components/guestbook/GuestBookInput';
+import { db } from '@/lib/prisma';
 
-const page = () => {
-  //const guestbook = board?.filter((board) => board.name === 'guestbook');
-
-  // const posts = await db.post.findMany({
-  //   where: {
-  //     board: {
-  //       name: 'guestbook',
-  //     },
-  //   },
-  //    orderBy: {
-  //     createdAt: 'desc',
-  //   },
-  //   include: {},
-  // });
+const page = async () => {
+  const posts = await db.post.findMany({
+    where: {
+      board: {
+        name: 'guestbook',
+      },
+    },
+    include: { board: true },
+  });
 
   return (
     <div className="mt-12 flex flex-col items-center gap-8">
@@ -23,7 +19,7 @@ const page = () => {
         <p className="text-stone-500 dark:text-stone-400 text-sm">자유롭게 써주세용 &gt;.&lt;</p>
       </div>
       <GuestBookInput />
-      <GuestBookFeed />
+      <GuestBookFeed posts={posts} />
     </div>
   );
 };

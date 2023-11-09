@@ -10,7 +10,6 @@ const Scrolled = () => {
   const scrollFn = () => {
     if (typeof window !== undefined) {
       window.addEventListener('scroll', () => {
-        console.log(window.scrollY);
         setScroll(window.scrollY);
       });
     }
