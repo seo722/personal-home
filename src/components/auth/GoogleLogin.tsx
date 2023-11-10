@@ -39,7 +39,7 @@ const GoogleLogin: FC<GoogleLoginProps> = ({ className, ...props }) => {
       <Button
         onClick={loginWithGoogle}
         size="sm"
-        className="transition ease-in-out duration-300 bg-gradient-to-r to-[#849b5c] from-[#d1e6ad] rounded-full w-5/6 sm:w-[320px] h-[49px] text-base text-lime-800 mb-5 hover:text-lime-100"
+        className="transition ease-in-out duration-300 bg-gradient-to-r to-[#F9FCFF] from-[#DEE4EA] rounded-full w-5/6 sm:w-[320px] h-[49px] text-base text-stone-500 mb-5 hover:text-stone-700 font-bold"
       >
         {isLoading ? <Loader2 className="animate-spin w-4 h-4 mr-2" /> : <Icons.google className="w-4 h-4 mr-2" />}
         Google

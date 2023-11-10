@@ -4,12 +4,13 @@ import { Textarea } from '../ui/textarea';
 import { Input } from '../ui/input';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { GuestBookRequest, GuestBookValidator } from '@/lib/validators/guestbook';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '../ui/button';
 import { useRouter } from 'next/navigation';
 import { Separator } from '../ui/separator';
+import { toast } from '@/hooks/use-toast';
 
 const GuestBookInput = () => {
   const router = useRouter();
@@ -35,7 +36,14 @@ const GuestBookInput = () => {
       return data;
     },
     onError: (err) => {
-      console.log(err);
+      if (err instanceof AxiosError) {
+        if (err.response?.status === 401) {
+          return toast({
+            title: '로그인 후 작성 가능합니다',
+            variant: 'destructive',
+          });
+        }
+      }
     },
     onSuccess: () => {
       reset({

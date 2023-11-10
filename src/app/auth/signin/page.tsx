@@ -11,20 +11,20 @@ const SignInPage = () => {
     "
     >
       <SignInForm />
-      <Link
+      {/* <Link
         href="/"
         className={cn(
           buttonVariants({
             variant: 'outline',
             size: 'sm',
             className:
-              ' border border-lime-200 transition ease-in-out duration-300 bg-[#849b5c] hover:bg-[#d1e6ad] rounded-full h-12 w-12 text-base hover:text-lime-800 mb-5 text-lime-100 px-4',
+              ' border border-[#8c9192] transition ease-in-out duration-300 bg-[#DEE4EA] hover:bg-[#cbd0d4] rounded-full h-12 w-12 text-base mb-5 text-[#545d5f] px-4',
           }),
-          'absolute top-5 border-lime-800 w-fit'
+          'absolute top-5 border-[#8c9192] w-fit'
         )}
       >
         <Home className="w-4 h-4" />
-      </Link>
+      </Link> */}
     </div>
   );
 };

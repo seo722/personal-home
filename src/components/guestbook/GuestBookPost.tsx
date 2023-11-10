@@ -11,8 +11,7 @@ interface PostProps {
 }
 
 const GusetBookPost = async ({ post }: PostProps) => {
-  const onDelete = async () => {};
-
+ 
   return (
     <div>
       <div key={post.id} className="flex justify-between items-center">

@@ -1,17 +1,18 @@
 'use client';
 
-import { GuestBookDeleteRequest } from '@/lib/validators/guestbook';
 import { Post } from '@prisma/client';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { useSession } from 'next-auth/react';
+import { cn } from '@/lib/utils';
 
 interface GuestBookDeleteButtonProps {
   post: Post;
 }
 
 const GuestBookDeleteButton = ({ post }: GuestBookDeleteButtonProps) => {
+  const session = useSession();
   const router = useRouter();
   const guestbookId = post.id;
 
@@ -32,7 +33,13 @@ const GuestBookDeleteButton = ({ post }: GuestBookDeleteButtonProps) => {
   });
 
   return (
-    <div>
+    <div
+      className={cn(
+        'hidden',
+        session.data?.user.id === post.authorId && 'block',
+        session.data?.user.name === 'pado' && 'block'
+      )}
+    >
       <button
         onClick={() => {
           deleteGuestBook();

@@ -16,7 +16,7 @@ export async function POST(req: Request) {
     const { description, name } = GuestBookValidator.parse(body);
 
     await db.post.create({
-      data: { description, title: name, authorId: session.user.id, BoardId: '1' },
+      data: { description, title: name, authorId: session?.user.id || ' ', BoardId: '1' },
     });
 
     return new Response('OK');

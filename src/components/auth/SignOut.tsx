@@ -22,9 +22,9 @@ const SignOut = () => {
       <Button
         onClick={signOutFn}
         size="sm"
-        className="transition ease-in-out duration-300 bg-gradient-to-r to-[#849b5c] from-[#d1e6ad] rounded-full w-5/6 sm:w-[320px] h-[49px] text-base text-lime-800   hover:text-lime-100 mb-10"
+        className="transition ease-in-out duration-300 bg-gradient-to-r to-[#DEE4EA] from-[#F9FCFF] rounded-full w-5/6 sm:w-[320px] h-[49px] text-base text-stone-500   hover:text-stone-700 mb-10"
       >
-        Sign out
+        로그아웃
       </Button>
     </div>
   );

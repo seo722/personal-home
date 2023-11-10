@@ -8,7 +8,7 @@ const SignUpPage = async () => {
   return (
     <div className="w-full h-full absolute flex flex-col gap-4 items-center p-8 mt-8 sm:mt-4">
       <SignUpForm />
-      <Link
+      {/* <Link
         href="/"
         className={cn(
           buttonVariants({
@@ -21,7 +21,7 @@ const SignUpPage = async () => {
         )}
       >
         <Home className="w-4 h-4" />
-      </Link>
+      </Link> */}
     </div>
   );
 };

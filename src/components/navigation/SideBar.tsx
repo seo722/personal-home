@@ -31,8 +31,8 @@ const SideBar = ({ show }: SideBarProps) => {
           setIsCollapsed((prev: boolean) => !prev);
         }}
         className={cn(
-          `text-neutral-700 dark:text-neutral-300 hover:text-lime-600 dark:hover:text-lime-200 transition-all duration-75 flex gap-1 [&>*]:my-auto text-md px-4 py-3 `,
-          pathname === route && 'text-lime-600 dark:text-lime-200'
+          `text-neutral-700 dark:text-neutral-300 hover:text-cyan-700 dark:hover:text-indigo-300 transition-all duration-75 flex gap-1 [&>*]:my-auto text-md px-4 py-3 `,
+          pathname === route && 'text-cyan-700 dark:text-indigo-300'
         )}
       >
         <div className="text-xl flex [&>*]:mx-auto w-[30px]">{icon}</div>
