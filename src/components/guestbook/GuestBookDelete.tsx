@@ -44,7 +44,7 @@ const GuestBookDeleteButton = ({ post }: GuestBookDeleteButtonProps) => {
         onClick={() => {
           deleteGuestBook();
         }}
-        className="text-stone-500 cursor-pointer border rounded-2xl border-stone-500 text-[12px] p-2 font-bold"
+        className="text-stone-500 cursor-pointer border rounded-2xl border-stone-500 text-[12px] p-2 font-bold hover:text-stone-700 hover:border-stone-700 dark:hover:text-stone-300 dark:hover:border-stone-300 transition-all duration-100"
       >
         삭제
       </button>

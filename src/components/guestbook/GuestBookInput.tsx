@@ -102,7 +102,7 @@ const GuestBookInput = () => {
           {(errors.description || errors.name) && (
             <div className="flex flex-col gap-4 mt-4">
               {errors.description?.message}
-              {errors.name && <Separator className="bg-stone-400 dark:bg-stone-600" />}
+              {errors.name && errors.description && <Separator className="bg-stone-400 dark:bg-stone-600" />}
               {errors.name?.message}
             </div>
           )}
