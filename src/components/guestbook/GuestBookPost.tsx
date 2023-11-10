@@ -21,7 +21,7 @@ const GusetBookPost = async ({ post }: PostProps) => {
         <div className="w-5/6">
           <div className="mb-1">
             <span className="text-[12px] text-stone-600 dark:text-stone-400 font-semibold">작성자 : {post.title}</span>
-            <span className="ml-2 text-[12px] text-stone-500">{format(dateFnsDate, 'MM월 dd일 HH:mm')}</span>
+            <span className="ml-2 text-[12px] text-stone-500">{format(post.createdAt, 'MM월 dd일 HH:mm')}</span>
           </div>
           <div>{post?.description}</div>
         </div>
