@@ -15,13 +15,17 @@ interface PostProps {
 const GusetBookPost = async ({ post }: PostProps) => {
   const dateFnsDate = new Date(post.createdAt);
 
+  //왜 아이폰에서는 시간이 제대로 안 뜰까...
+
   return (
     <div className="p-2">
       <div key={post.id} className="flex justify-between items-center h-full">
         <div className="w-5/6">
           <div className="mb-1">
             <span className="text-[12px] text-stone-600 dark:text-stone-400 font-semibold">작성자 : {post.title}</span>
-            <span className="ml-2 text-[12px] text-stone-500">{format(post.createdAt, 'MM월 dd일 HH:mm')}</span>
+            <time dateTime={post.createdAt.toDateString()}>
+              <span className="ml-2 text-[12px] text-stone-500">{format(dateFnsDate, 'MM월 dd일 HH:mm')}</span>
+            </time>
           </div>
           <div>{post?.description}</div>
         </div>
