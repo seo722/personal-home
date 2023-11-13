@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { BookOpenText, Home, InfoIcon, Mail, MenuIcon, X } from 'lucide-react';
+import { Book, BookOpenText, BookText, Home, InfoIcon, Mail, MenuIcon, X } from 'lucide-react';
 import { useMediaQuery } from 'usehooks-ts';
 
 import { cn } from '@/lib/utils';
@@ -45,7 +45,7 @@ const SideBar = ({ show }: SideBarProps) => {
   const ModalOverlay = () => (
     <div
       className={cn(
-        `flex md:hidden fixed top-0 right-0 bottom-0 left-0 bg-black/50 backdrop-blur-sm transition-all ease-in-out`,
+        `flex md:hidden fixed top-0 right-0 bottom-0 left-0 bg-black/50 backdrop-blur-md transition-all ease-in-out`,
         isCollapsed ? 'opacity-0 ' : 'opacity-100 z-30 '
       )}
       onClick={() => {
@@ -75,6 +75,7 @@ const SideBar = ({ show }: SideBarProps) => {
         <Separator className="dark:bg-neutral-700" />
         <div className="flex flex-col py-1">
           <MenuItem name="Home" route="/" icon={<Home />} />
+          <MenuItem name="게시글" route="/posting" icon={<Book />} />
           <MenuItem name="방명록" route="/guestbook" icon={<BookOpenText />} />
           {/* <MenuItem name="Contact" route="/contact" icon={<Mail />} /> */}
         </div>
