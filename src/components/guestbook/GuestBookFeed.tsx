@@ -6,15 +6,6 @@ interface PostProps {
 }
 
 const GuestBookFeed = async ({ posts }: PostProps) => {
-  // const posts = await db.post.findMany({
-  //   where: {
-  //     board: {
-  //       name: 'guestbook',
-  //     },
-  //   },
-  //   include: { board: true },
-  // });
-
   return (
     <div className="border-2 rounded-xl sm:w-full max-w-[800px] w-[340px] border-black/60 dark:border-white/70 h-full">
       <div className="h-full grid grid-cols-1 divide-y justify-around p-4 divide-stone-300 dark:divide-stone-700">

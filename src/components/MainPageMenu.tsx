@@ -1,12 +1,10 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { buttonVariants } from './ui/button';
 
 const MainPageMenu = () => {
   return (
-    <div className="hidden md:flex flex-col gap-4 fixed">
+    <div className="border-r-2 border-stone-500 h-full w-[240px] hidden md:flex flex-col gap-4 fixed">
       메뉴 들어갈 공간공간공간
       <Link href="/posting" className="hover:underline text-2xl font-bold">
         게시글
