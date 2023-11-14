@@ -7,7 +7,7 @@ interface PostProps {
 
 const GuestBookFeed = async ({ posts }: PostProps) => {
   return (
-    <div className="border-2 rounded-xl sm:w-full max-w-[800px] w-[340px] border-black/60 dark:border-white/70 h-full">
+    <div className="border-2 rounded-xl sm:w-full max-w-[800px] w-[340px] border-black/60 dark:border-white/70 h-full pb-10">
       <div className="h-full grid grid-cols-1 divide-y justify-around p-4 divide-stone-300 dark:divide-stone-700">
         {posts.length === 0 && (
           <div className="h-full flex flex-col justify-center">

@@ -18,7 +18,7 @@ const MiniCreatePost: FC<MiniCreatePostProps> = ({ session }: MiniCreatePostProp
   const pathname = usePathname();
 
   return (
-    <div className=" rounded-md bg-white dark:bg-stone-900 shadow">
+    <div className="w-[300px] rounded-md bg-white dark:bg-stone-900 shadow">
       <div className="h-full px-6 py-4 flex justify-between gap-6">
         <div className="relative">
           <UserAvatar user={{ name: session?.user.name || null, image: session?.user.image || null }} />
