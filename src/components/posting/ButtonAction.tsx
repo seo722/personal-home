@@ -1,9 +1,15 @@
+'use client';
+
 import Link from 'next/link';
 import { Button, buttonVariants } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { Pencil, Trash2 } from 'lucide-react';
+import { useParams } from 'next/navigation';
 
 const ButtonAction = () => {
+  const params = useParams();
+  console.log(params.id);
+
   return (
     <div>
       <Link

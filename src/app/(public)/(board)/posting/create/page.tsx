@@ -6,18 +6,20 @@ import { toast } from '@/hooks/use-toast';
 import { PostingRequest } from '@/lib/validators/posting';
 import { FormInputPost } from '@/types';
 import { useMutation } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
+import axios, { AxiosError } from 'axios';
+import { useRouter } from 'next/navigation';
 import { SubmitHandler } from 'react-hook-form';
 
 const CreatePage = () => {
+  const router = useRouter();
   const handleCreatePost: SubmitHandler<FormInputPost> = (data) => {};
 
   const { mutate: submitPost } = useMutation({
     mutationFn: async ({ description, title }: PostingRequest) => {
-      console.log({ description, title });
-      //   const payload: PostingRequest = { description, title };
-      //   const { data } = await axios.post('/api/board/posting', payload);
-      //   return data;
+      //  console.log({ description, title });
+      const payload: PostingRequest = { description, title };
+      const { data } = await axios.post('/api/board/posting', payload);
+      return data;
     },
     onError: (err) => {
       if (err instanceof AxiosError) {
@@ -30,12 +32,11 @@ const CreatePage = () => {
       }
     },
     onSuccess: () => {
-      //   reset({
-      //     title: '',
-      //     description: '',
-      //     // password: '',
-      //   });
-      //   router.refresh();
+      toast({
+        title: '게시글이 등록되었습니다.',
+      });
+      router.push('/posting');
+      router.refresh();
     },
   });
 

@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 const BackButton = () => {
   const router = useRouter();
   return (
-    <div>
+    <div className="ml-8 mb-8 mt-4">
       <Button
         variant="outline"
         className="bg-stone-200 hover:bg-stone-300 border-none dark:bg-stone-600 dark:hover:bg-stone-700"

@@ -1,4 +1,4 @@
-import { Post, Board, User } from '@prisma/client';
+import { Post } from '@prisma/client';
 import PostingPost from './PostingPost';
 
 interface PostProps {
@@ -7,7 +7,7 @@ interface PostProps {
 
 const PostingFeed = async ({ posts }: PostProps) => {
   return (
-    <div className="w-full h-full grid grid-cols-1 divide-y justify-around p-4 divide-stone-300 dark:divide-stone-700 mb-10">
+    <div className="w-full h-full grid grid-cols-1 justify-around p-4 mb-10 gap-2">
       {posts.length === 0 && (
         <div className="h-fit flex flex-col justify-center">
           <div className="text-stone-700 dark:text-stone-300">게시글을 남겨주세요!</div>

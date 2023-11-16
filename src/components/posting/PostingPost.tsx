@@ -2,6 +2,8 @@
 
 import { Post, User, Board } from '@prisma/client';
 import { useRouter } from 'next/navigation';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { format } from 'date-fns';
 
 interface PostProps {
   post: Post & {
@@ -12,18 +14,26 @@ interface PostProps {
 
 const PostingPost = ({ post }: PostProps) => {
   const router = useRouter();
+  const dateFnsDate = new Date(post.createdAt);
+
   return (
-    <div className="border-2 rounded-xl w-full max-w-[800px] border-black/60 dark:border-white/70 h-fit">
-      <div
-        className="h-full grid grid-cols-1 divide-y justify-around p-4 divide-stone-300 dark:divide-stone-700 hover:cursor-pointer"
+    <div>
+      <Card
+        className="group/title dark:bg-stone-900 dark:border-none hover:cursor-pointer shadow"
         onClick={() => {
           router.push(`/posting/${post.id}`);
         }}
       >
-        <div>{post.author?.name}</div>
-        <div>{post.title}</div>
-        <div>{post.description}</div>
-      </div>
+        <CardHeader className="group-hover/title:underline">
+          <CardTitle className="">{post.title}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <span className="font-semibold text-[14px] text-stone-500">{post.author?.name}</span>
+          <time dateTime={post.createdAt.toDateString()}>
+            <span className="ml-2 text-[12px] text-stone-500">{format(dateFnsDate, 'MM월 dd일 HH:mm')}</span>
+          </time>
+        </CardContent>
+      </Card>
     </div>
   );
 };
