@@ -24,7 +24,7 @@ const MiniCreatePost: FC<MiniCreatePostProps> = ({ session }: MiniCreatePostProp
           <UserAvatar user={{ name: session?.user.name || null, image: session?.user.image || null }} />
         </div>
 
-        <Input readOnly onClick={() => router.push(pathname + '/submit')} placeholder="Create Post" />
+        <Input readOnly onClick={() => router.push(pathname + '/create')} placeholder="Create Post" />
       </div>
     </div>
   );

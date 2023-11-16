@@ -17,7 +17,7 @@ const page = async () => {
   const admin = session?.user.name === 'pado' || 'Seu Park';
 
   return (
-    <div className="mt-12 flex flex-col items-center gap-8">
+    <div className="mt-8 flex flex-col items-center gap-8">
       {session && admin && <MiniCreatePost session={session} />}
 
       {posts.length === 0 ? <div>게시글이 없습니다.</div> : <PostingFeed posts={posts} />}
