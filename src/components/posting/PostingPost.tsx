@@ -21,6 +21,7 @@ const PostingPost = ({ post }: PostProps) => {
       <Card
         className="group/title dark:bg-stone-900 dark:border-none hover:cursor-pointer shadow"
         onClick={() => {
+          console.log(post.id);
           router.push(`/posting/${post.id}`);
         }}
       >

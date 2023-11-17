@@ -3,14 +3,32 @@
 import BackButton from '@/components/posting/BackButton';
 import FormPost from '@/components/posting/FormPost';
 import { toast } from '@/hooks/use-toast';
+import { db } from '@/lib/prisma';
 import { PostingRequest } from '@/lib/validators/posting';
 import { FormInputPost } from '@/types';
-import { useMutation } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import axios, { AxiosError } from 'axios';
+import { FC } from 'react';
 import { SubmitHandler } from 'react-hook-form';
 
-const EditPostPage = () => {
-  const handleCreatePost: SubmitHandler<FormInputPost> = (data) => {};
+interface EditPostPageProps {
+  params: {
+    postingId: string;
+  };
+}
+
+const EditPostPage: FC<EditPostPageProps> = async ({ params }) => {
+  const { postingId } = params;
+  // console.log(postingId);
+
+  const { data: postData } = useQuery({
+    queryKey: ['posts', postingId],
+    queryFn: async () => {
+      const response = await axios.get(`/api/board/posting/${postingId}`);
+      return response.data;
+    },
+  });
+  console.log(postData);
 
   const { mutate: editPost } = useMutation({
     mutationFn: async ({ description, title }: PostingRequest) => {
