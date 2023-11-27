@@ -1,8 +1,10 @@
 import BackButton from '@/components/posting/BackButton';
 import ButtonAction from '@/components/posting/ButtonAction';
 import { db } from '@/lib/prisma';
-import { useParams } from 'next/navigation';
+import dompurify from 'dompurify';
 import { FC } from 'react';
+import { sanitize, isSupported } from 'isomorphic-dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 
 interface DetailPostPageProps {
   params: {
@@ -25,12 +27,19 @@ const DetailPostPage: FC<DetailPostPageProps> = async ({ params }) => {
   });
 
   return (
-    <div className="">
+    <div>
       <BackButton />
       <div className="mb-8 mx-8">
         <h2 className="text-2xl font-bold my-4">{post?.title}</h2>
         <ButtonAction postingId={params.postingId} />
-        <p className="text-stone-700 dark:text-stone-300">{post?.description}</p>
+        {post?.description && (
+          <>
+            <div
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post?.description) }}
+              className="text-stone-700 dark:text-stone-300"
+            />
+          </>
+        )}
       </div>
     </div>
   );

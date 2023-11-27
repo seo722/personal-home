@@ -45,6 +45,21 @@ body {
     --radius: 0.5rem;
   }
 
+  h1 {
+    @apply text-[34px];
+  }
+
+  h1 {
+    @apply text-[30px];
+  }
+
+  ol {
+    @apply list-decimal list-inside;
+  }
+  ul {
+    @apply list-disc list-inside;
+  }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
