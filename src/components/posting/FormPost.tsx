@@ -12,7 +12,6 @@ import { PostingRequest, PostingValidator } from '@/lib/validators/posting';
 import { FormInputPost } from '@/types';
 import { FC, useEffect, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import ReactQuill from 'react-quill';
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 
@@ -25,6 +24,8 @@ const QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
   loading: () => <p>Loading ...</p>,
 });
+
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const FormPost: FC<FormPostProps> = ({ submit, isEditing }) => {
   const router = useRouter();
