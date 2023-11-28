@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Book, BookOpenText, BookText, Home, InfoIcon, Mail, MenuIcon, X } from 'lucide-react';
+import { Book, BookOpenText, Home, MenuIcon, X } from 'lucide-react';
 import { useMediaQuery } from 'usehooks-ts';
 
 import { cn } from '@/lib/utils';

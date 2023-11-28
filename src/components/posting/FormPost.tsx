@@ -3,14 +3,10 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { Textarea } from '../ui/textarea';
-import { useMutation } from '@tanstack/react-query';
-import axios, { AxiosError } from 'axios';
-import { toast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import { PostingRequest, PostingValidator } from '@/lib/validators/posting';
 import { FormInputPost } from '@/types';
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
@@ -20,18 +16,10 @@ interface FormPostProps {
   isEditing: boolean;
 }
 
-const QuillNoSSRWrapper = dynamic(import('react-quill'), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-});
-
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const FormPost: FC<FormPostProps> = ({ submit, isEditing }) => {
   const router = useRouter();
-
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
 
   const {
     register,
@@ -55,11 +43,10 @@ const FormPost: FC<FormPostProps> = ({ submit, isEditing }) => {
   const modules = {
     toolbar: [
       [{ header: '1' }, { header: '2' }, { font: [] }],
-      [{ size: [] }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
-      ['link', 'image', 'video'],
-      ['clean'],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      [{ color: [] }],
+      ['link', 'image'],
     ],
     clipboard: {
       // toggle to add extra line breaks when pasting HTML:
@@ -73,30 +60,23 @@ const FormPost: FC<FormPostProps> = ({ submit, isEditing }) => {
   const formats = [
     'header',
     'font',
-    'size',
     'bold',
     'italic',
     'underline',
     'strike',
-    'blockquote',
     'list',
     'bullet',
-    'indent',
     'link',
     'image',
-    'video',
+    'color',
   ];
-
-  useEffect(() => {
-    console.log(description);
-  }, [description]);
 
   return (
     <div>
       <form onSubmit={handleSubmit(submit)} className="flex flex-col items-center justify-center gap-5 mt-8">
         <Input
           {...register('title', { required: true })}
-          className="w-5/6 max-w-lg dark:bg-stone-900 border-stone-200 dark:border-none transition duration-100 "
+          className="w-5/6   dark:bg-stone-900 border-stone-200 dark:border-none transition duration-100 "
           placeholder="제목"
         />
         {/* <Textarea
@@ -104,7 +84,13 @@ const FormPost: FC<FormPostProps> = ({ submit, isEditing }) => {
           className="w-5/6 max-w-lg dark:bg-stone-900 border-stone-200 dark:border-none transition duration-100 "
           placeholder="내용을 입력해주세요."
         /> */}
-        <ReactQuill onChange={handleChange} theme="snow" modules={modules} formats={formats} />
+        <ReactQuill
+          onChange={handleChange}
+          theme="snow"
+          className="w-5/6  bg-white dark:bg-stone-900 border-stone-200 dark:border-none "
+          modules={modules}
+          formats={formats}
+        />
         <Button
           variant="register"
           className="w-5/6 max-w-lg bg-stone-200 dark:bg-stone-800 border-stone-200 dark:border-none transition duration-200 "
@@ -114,23 +100,6 @@ const FormPost: FC<FormPostProps> = ({ submit, isEditing }) => {
         <div>{errors.title?.message}</div>
         <div>{errors.description?.message}</div>
       </form>
-
-      {/* <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(description);
-        }}
-      >
-        <input value={title} onChange={(e) => {}} />
-        <ReactQuill onChange={handleChange} theme="snow" modules={modules} formats={formats} />
-
-        <Button
-          variant="register"
-          className="w-5/6 max-w-lg bg-stone-200 dark:bg-stone-800 border-stone-200 dark:border-none transition duration-200 "
-        >
-          {isEditing ? '수정' : '작성'}
-        </Button>
-      </form> */}
     </div>
   );
 };

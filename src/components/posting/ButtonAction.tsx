@@ -39,7 +39,7 @@ const ButtonAction = ({ postingId }: { postingId: string }) => {
   });
 
   return (
-    <div>
+    <div className=" ">
       {session?.data?.user.name === 'pado' && (
         <div>
           <div className="hidden">

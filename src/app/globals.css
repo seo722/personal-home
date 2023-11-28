@@ -46,11 +46,22 @@ body {
   }
 
   h1 {
-    @apply text-[34px];
+    @apply text-2xl sm:text-[34px];
   }
-
-  h1 {
-    @apply text-[30px];
+  h2 {
+    @apply text-lg sm:text-[24px] md:text-[30px];
+  }
+  h3 {
+    @apply text-lg sm:text-xl md:text-[24px];
+  }
+  h4 {
+    @apply text-lg sm:text-xl;
+  }
+  h5 {
+    @apply text-[16px] sm:text-lg;
+  }
+  h6 {
+    @apply text-[16px];
   }
 
   ol {
